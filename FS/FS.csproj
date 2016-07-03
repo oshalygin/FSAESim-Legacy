@@ -105,6 +105,8 @@
     <Content Include="Transfer Folder\rpmVTorque.xlsx" />
     <Content Include="Transfer Folder\Track Map_Final_Version.pdf" />
     <Content Include="Transfer Folder\Velocity_Calculations.xlsx" />
+    <None Include="Properties\PublishProfiles\FSAESim - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\FSAESim - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

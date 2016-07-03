@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml" itemscope itemtype="http://schema.org/WebPage">
+<head profile="http://www.w3.org/2005/10/profile"><link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" /><link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+
+<title>Simulation</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="css/reset.css" type="text/css" media="all" />
+<link rel="stylesheet" href="css/layout.css" type="text/css" media="all" />
+<link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+<script type="text/javascript" src="js/jquery-1.6.js" ></script>
+<script type="text/javascript" src="js/cufon-yui.js"></script>
+<script type="text/javascript" src="js/cufon-replace.js"></script>
+<script type="text/javascript" src="js/Swis721_Cn_BT_400.font.js"></script>
+<script type="text/javascript" src="js/Swis721_Cn_BT_700.font.js"></script>
+<script type="text/javascript" src="js/tabs.js"></script>
+
+<script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-29885916-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function () {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+</script>
+
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+	<script type="text/javascript" src="framework.js"></script>
+	<script type="text/javascript">
+	    function ShowCalculation() {
+	        var results = Main($("#vehicleWeightTxt").val(), $("#tireChoiceSel").val(), $("#wheelBaseTxt").val(), $("#wheelRadiusTxt").val(), $("#trackWidthTxt").val(), $("#hcgTxt").val(), $("#weightDistributionTxt").val(), $("#shiftRpmTxt").val(), $("#ntTxt").val(), $("#downforceTxt").val(), $("#dragCoefficientTxt").val(), $("#engineTorqueSel").val(), $("#forcedInductionSel").val());
+
+	        $('#outputTotalTime').empty();
+	        $('#outputTotalPoints').empty();
+	        $('#outputFuelUsed').empty();
+	        $('#outputTimeOpenThrottle').empty();
+	        $('#outputCorneringTimeTotal').empty();
+	        $('#outputTotalStraightSectionTime').empty();
+	        $('#outputTotalNumberOfShifts').empty();
+	        $('#outputTractionLimitedDuration').empty();
+	        $('#outputMeanLongAccel').empty();
+	        $('#outputMeanHorsepower').empty();
+	        $('#outputAccelerationTime').empty();
+	        $('#outputMeanAccelerationLongAccel').empty();
+	        $('#outputAccelerationTractionLimitedTime').empty();
+	        $('#outputAccelerationTotalPoints').empty();
+	        $('#outputAccelerationWideOpenThrottlePercentage').empty();
+	        $('#outputAccelerationShifts').empty();
+	        $('#outputAccelerationTrapSpeed').empty();
+	        $('#outputTotalEnduranceTime').empty();
+	        $('#outputTotalEndurancePoints').empty();
+	        $('#outputTotalEnduranceFuelUsed').empty();
+	        $('#outputTotalWOTPercentage').empty();
+	        $('#outputTotalEnduranceShifts').empty();
+	        $('#outputTotalEnduranceTractionLimitedTime').empty();
+	        $('#outputTotalEnduranceAcceleration').empty();
+	        $('#outputSkidpadTime').empty();
+	        $('#outputSkidpadPoints').empty();
+	        $('#outputSkidpadVelocity').empty();
+	        $('#outputSkidpadAcceleration').empty();
+	        $('#outputAutocrossTime').empty();
+	        $('#outputAutocrossPoints').empty();
+	        $('#outputAutocrossTotalShifts').empty();
+	        $('#outputAutocrossTractionLimitedTime').empty();
+	        $('#outputAutocrossVelocity').empty();
+	        $('#outputAutocrossWOTPercentage').empty();
+	        $('#outputAutocrossLongitudinalAcceleration').empty();
+	        $('#outputMaxHorsepower').empty();
+
+
+
+
+	        $("#outputTotalTime").append(results.output1);
+	        $("#outputTotalPoints").append(results.output2);
+	        $("#outputFuelUsed").append(results.output3);
+	        $("#outputTimeOpenThrottle").append(results.output4);
+	        $("#outputCorneringTimeTotal").append(results.output5);
+	        $("#outputTotalStraightSectionTime").append(results.output6);
+	        $("#outputTotalNumberOfShifts").append(results.output7);
+	        $("#outputTractionLimitedDuration").append(results.output8);
+	        $("#outputMeanLongAccel").append(results.output9);
+	        $("#outputMeanHorsepower").append(results.output10);
+	        $("#outputMaxHorsepower").append(results.output27);
+
+
+	        $("#outputAccelerationTime").append(results.output11);
+	        $("#outputMeanAccelerationLongAccel").append(results.output12);
+	        $("#outputAccelerationTractionLimitedTime").append(results.output13);
+	        $("#outputAccelerationTotalPoints").append(results.output14);
+	        $("#outputAccelerationWideOpenThrottlePercentage").append(results.output15);
+	        $("#outputAccelerationShifts").append(results.output16);
+	        $("#outputAccelerationTrapSpeed").append(results.output17);
+
+	        $("#outputTotalEnduranceTime").append(results.output1);
+	        $("#outputTotalEndurancePoints").append(results.output2);
+	        $("#outputTotalEnduranceFuelUsed").append(results.output3);
+	        $("#outputTotalWOTPercentage").append(results.output4);
+	        $("#outputTotalEnduranceShifts").append(results.output7);
+	        $("#outputTotalEnduranceTractionLimitedTime").append(results.output8);
+	        $("#outputTotalEnduranceAcceleration").append(results.output9);
+
+	        $("#outputSkidpadTime").append(results.output18);
+	        $("#outputSkidpadPoints").append(results.output19);
+	        $("#outputSkidpadVelocity").append(results.output20);
+	        $("#outputSkidpadAcceleration").append(results.output21);
+
+	        $("#outputAutocrossTime").append(results.output22);
+	        $("#outputAutocrossPoints").append(results.output23);
+	        $("#outputAutocrossTotalShifts").append(results.output24);
+	        $("#outputAutocrossTractionLimitedTime").append(results.output25);
+	        $("#outputAutocrossVelocity").append(results.output26);
+	        $("#outputAutocrossWOTPercentage").append(results.output4);
+	        $("#outputAutocrossLongitudinalAcceleration").append(results.output9);
+
+
+
+	        
+
+	    }
+	</script>
+    <script language="javascript" type="text/javascript">
+    //Function for the Submit Button to change images
+        function mouseOver() {
+            document.getElementById("submitButton").src = "images/simulationSubmitPressed.png";
+        }
+        function mouseOut() {
+            document.getElementById("submitButton").src = "images/simulationSubmit.png";
+        
+        }
+    
+    
+    
+    
+    </script>
+    <script type="text/javascript">
+        window.onload = function () {
+
+            bp = 'images/', 
+	        imgnum = 23, 
+	        torqueImage = document.getElementById('torqueImage'), 
+	        combobox = document.getElementById('engineTorqueSel'); 
+
+            combobox.onchange = function () {
+                torqueImage.src = bp + 'curve' + this.value + '.png';
+
+            }
+        }
+
+</script>
+
+</head>
+
+<body id="page2" itemscope itemtype="http://schema.org/WebPage">
+	<div class="body1">
+	<div class="body2">
+	<div class="body5">
+		<div class="main">
+         
+			<header>
+				<div>
+				<h1><a href="index.html" id="logo">Formula SAE Simulation</a></h1>
+				<div id="Navigation" itemprop="breadcrumb">
+					<ul id="menu">
+						<li id="nav1" class="active"><a href="index.html" title="Home Page">Home<span>Page</span></a></li>
+
+						<li id="nav2"><a href="resources.html" title="Engineering Resources">Engineering<span>Resources</span></a></li>
+
+						<li id="nav3"><a href="documentation.html" title="Download Documentation">Download<span>Documentation</span></a></li>
+
+						<li id="nav4"><a href="simulation.html" title="Run Simulation">Run<span>Simulation</span></a></li>
+
+						<li id="nav5"><a href="track.html" title="Track Map">Track<span>Map</span></a></li>
+					</ul>
+                    </div>
+				</div>
+			</header>
+
+		</div>
+	</div>
+	</div>
+	</div>
+    
+	<div class="body1">
+		<div class="main">
+        
+
+        
+
+        <h4>Vehicle Parameters</h4>
+        <table border="0">
+        <tr>
+        <td>
+        Tire Choice
+        </td>
+        <td>
+        <select id="tireChoiceSel">
+        <option value="1">Michelin 13"</option>
+        <option value="2">Hoosier 13" Large</option>
+        <option value="3">Hoosier 13" Small</option>
+        <option value="4">Goodyear 13"</option>
+        <option value="5">Constant Cf=1.3</option>
+        </select>
+        &nbsp;&nbsp;&nbsp;
+        </td>
+        <td>
+        Engine/Curve:&nbsp;&nbsp;
+        </td>
+        <td><select id="engineTorqueSel">
+        <option value="23">Yamaha WR450 - Delft Curve</option>
+		<option value="1">Honda CBR600 - Stuttgart Curve</option>
+        <option value="2">Honda CBR600 - KA-RaceIng Curve</option>
+        <option value="3">Honda CBR600 - Unicorn Race Curve</option>
+        <option value="4">Honda CBR600 - Mittweida Curve</option>
+        <option value="5">Honda CBR600 - Raceyard Kiel Curve</option>
+        <option value="6">Honda CBR600 - Eleven O Six Curve</option>
+        <option value="7">Honda CBR600 - Racetech TU Curve</option>
+        <option value="8">Honda CBR600 - WHZ Racing Curve</option>
+        <option value="9">Honda CRF450 - Tokyo Denki Curve</option>
+        <option value="10">Kawasaki NinjaZX6 - Race UP Curve</option>
+        <option value="11">KTM EXC-R 530 - Oxford Curve</option>
+        <option value="12">KTM LC4 640 - BA Motors Curve</option>
+        <option value="13">Rotax 540 - Joanneum Curve</option>
+        <option value="14">Suzuki GSXR600 - Darmst TU Curve</option>
+        <option value="15">Suzuki GSXR600 - FaSTTUBe Curve</option>
+        <option value="16">Suzuki GSXR600 - Eindhoven Curve</option>
+        <option value="17">Suzuki GSXR600 - Scuderia Curve</option>
+        <option value="18">Suzuki GSXR600 - Kaisersl Curve</option>
+        <option value="19">Yamaha R6 - TU Graz Curve</option>
+        <option value="20">Yamaha R6 - Metropolia Curve</option>
+        <option value="21">Yamaha R6 - GFR Curve</option>
+        <option value="22">Yamaha R6 - Koln Curve</option>
+        <option value="23">Yamaha WR450 - Delft Curve</option>
+
+	    </select>
+        &nbsp;&nbsp;&nbsp;
+        </td>
+        <td>
+        Aero Downforce at 40mph:&nbsp;&nbsp;
+        </td>
+        <td>
+        <input type="text" id="downforceTxt" value="55" size="5" />
+        </td>
+        </tr>
+        
+        <tr>
+        <td>
+        Vehicle Weight(lb):
+        </td>
+        <td>
+        <input type="text" id="vehicleWeightTxt" value="530" size="5" />
+        </td>
+        <td>
+        Forced Induction:
+        </td>
+        <td>
+        <select id="forcedInductionSel">
+        <option value="1">Naturally Aspirated(0 hp)</option>
+		<option value="2">Turbo(5 hp)</option>
+		<option value="3">Turbo(10 hp)</option>
+		<option value="4">Turbo(20 hp) </option>
+        <option value="5">Turbo(30 hp) </option>
+        <option value="6">Supercharger(10 hp) </option>
+        <option value="7">Supercharger(20 hp) </option>
+    	</select>
+        </td>
+        <td>
+        Lift/Drag:
+        </td>
+        <td>
+        <input type="text" id="dragCoefficientTxt" value="0.2" size="5" />
+        </td>
+        </tr>
+        
+        <tr>
+        <td>
+        Wheel Base(in):
+        </td>
+        <td>
+        <input type="text" id="wheelBaseTxt" value="61" size="5" />
+        </td>
+        <td>
+        Not Used Yet:
+        </td>
+        <td>
+        <input type="text" id="Text3" size="5" />
+        </td>
+        <td>
+        Not Used Yet:
+        </td>
+        <td>
+        <input type="text" id="Text4" size="5" />
+        </td>
+        </tr>
+        
+        <tr>
+        <td>
+        Wheel Radius(in):
+        </td>
+        <td>
+        <input type="text" id="wheelRadiusTxt" value="10.25" size="5"  />
+        </td>
+        <td>
+        Not Used Yet:
+        </td>
+        <td>
+        <input type="text" id="Text5" size="5" />
+        </td>
+        <td>
+        Not Used Yet:
+        </td>
+        <td>
+        <input type="text" id="Text6" size="5" />
+        </td>
+        </tr>
+        
+        <tr>
+        <td>
+        Track Width(in):
+        </td>
+        <td>
+        <input type="text" id="trackWidthTxt" value="50" size="5" />
+        </td>
+        <td>
+        Not Used Yet:
+        </td>
+        <td>
+        <input type="text" id="Text7" size="5" />
+        </td>
+        <td>
+        Not Used Yet:
+        </td>
+        <td>
+        <input type="text" id="Text8" size="5" />
+        </td>
+        </tr>
+        
+        <tr>
+        <td>
+        Center of Gravity(in): 
+        </td>
+        <td>
+        <input type="text" id="hcgTxt" value="12" size="5" />
+        </td>
+        <td>
+        Not Used Yet:
+        </td>
+        <td>
+        <input type="text" id="Text9" size="5" />
+        </td>
+        <td>
+        Not Used Yet:
+        </td>
+        <td>
+        <input type="text" id="Text10" size="5" />
+        </td>
+        </tr>
+        
+        <tr>
+        <td>
+        Weight Dist %:&nbsp;
+        </td>
+        <td>
+        <input type="text" id="weightDistributionTxt" value="0.50" size="5" />
+        </td>
+        <td>
+        Not Used Yet:
+        </td>
+        <td>
+        <input type="text" id="Text11" size="5" />
+        </td>
+        <td>
+        Not Used Yet:
+        </td>
+        <td>
+        <input type="text" id="Text1" size="5" />
+        </td>
+        </tr>
+        
+        <tr>
+        <td>
+        Shift RPM: 
+        </td>
+        <td>
+        <input type="text" id="shiftRpmTxt" value="9500" size="5" />
+        </td>
+        <td>
+        Not Used Yet:
+        </td>
+        <td>
+        <input type="text" id="Text2" size="5" />
+        </td>
+        <td>
+        Not Used Yet:
+        </td>
+        <td>
+        <input type="text" id="Text12" size="5" />
+        </td>
+        </tr>
+        
+        <tr>
+        <td>
+        Final Drive Ratio: 
+        </td>
+        <td>
+        <input type="text" id="ntTxt" value="2.86" size="5" />
+        </td>
+        <td>
+        Not Used Yet:
+        </td>
+        <td>
+        <input type="text" id="Text13" size="5" />
+        </td>
+        <td>
+        Not Used Yet:
+        </td>
+        <td>
+        <input type="text" id="Text14" size="5" />
+        </td>
+        </tr>
+        </table>
+        <br />
+
+
+	    <center><a href=""><img src="images/simulationSubmit.png" alt="" id="submitButton" onmouseover="mouseOver()" onmouseout="mouseOut()" onclick="ShowCalculation(); return false;" /></a></center>
+		</div>
+        </div>
+        <div class="body1">
+        <div class="main">
+
+
+        <table border="0">
+
+                   <tr>
+           <td>&nbsp</td>
+           <td>&nbsp</td>
+           <td>&nbsp</td>
+           <td>&nbsp</td>
+           <td>&nbsp</td>
+           <td>&nbsp</td>
+           
+           </tr>
+
+
+        <tr>
+        <td>
+        <h4>Output</h4>
+        </td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </td>
+        <td></td>
+        <td></td>
+        <td><h4>Torque Curve</h4></td>
+        </tr>
+
+
+        <tr>
+        <td>
+        Total Time:
+        </td>
+        <td id="outputTotalTime">0000.000
+        </td>
+        <td>&nbsp;&nbsp;seconds</td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        
+        <td colspan="2" rowspan="12"><img id="torqueImage" src="images/curve23.png" alt="FSAE Torque Curve for Simulation" widht="400" height="300" /></td>
+        
+        </tr>
+
+        <tr>
+        <td>
+        Total Points:
+        </td>
+        <td id="outputTotalPoints">0000.000
+        </td>
+        <td>&nbsp;&nbsp;&nbsp;</td>
+        <td></td>
+        
+        </tr>
+
+        <tr>
+        <td>
+        Total Fuel Used:
+        </td>
+        <td id="outputFuelUsed">0000.000
+        </td>
+        <td>&nbsp;&nbsp;gallons</td>
+        </tr>
+
+        <tr>
+        <td>
+        Time on Wide Open Throttle:
+        </td>
+        <td id="outputTimeOpenThrottle">0000.000
+        </td>
+        <td>&nbsp;&nbsp;%</td>
+        </tr>
+
+        <tr>
+        <td>
+        Total Cornering Time:
+        </td>
+        <td id="outputCorneringTimeTotal">0000.000
+        </td>
+        <td>&nbsp;&nbsp;seconds</td>
+        </tr>
+
+        <tr>
+        <td>
+        Total Straight Section Time:
+        </td>
+        <td id="outputTotalStraightSectionTime">0000.000
+        </td>
+        <td>&nbsp;&nbsp;seconds</td>
+        </tr>
+
+        <tr>
+        <td>
+        Total Shifts:
+        </td>
+        <td id="outputTotalNumberOfShifts">0000.000
+        </td>
+        <td>&nbsp;&nbsp;&nbsp;</td>
+        </tr>
+
+        <tr>
+        <td>
+        Time Spent Traction Limited:
+        </td>
+        <td id="outputTractionLimitedDuration">0000.000
+        </td>
+        <td>&nbsp;&nbsp;seconds</td>
+        </tr>
+
+        <tr>
+        <td>
+        Average Longitudinal Acceleration:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </td>
+        <td id="outputMeanLongAccel">0000.000
+        </td>
+        <td>&nbsp;&nbsp;ft/s^2</td>
+        </tr>
+
+        <tr>
+        <td>
+        Mean Horsepower:
+        </td>
+        <td id="outputMeanHorsepower">0000.000
+        </td>
+        <td>&nbsp;&nbsp;hp</td>
+        </tr>
+
+
+        <tr>
+        <td>
+        Maximum Horsepower:
+        </td>
+        <td id="outputMaxHorsepower">0000.000
+        </td>
+        <td>&nbsp;&nbsp;hp</td>
+        </tr>
+
+        </table>
+        </div>
+        </div>
+
+        <div class="body1">
+        <div class="main">
+        <br />
+        <br />
+        <table border="0">
+
+        <tr>
+        <td><h4>Autocross</h4></td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td><h4>Skidpad</h4></td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        </tr>
+
+
+        <tr>
+        <td colspan="3"><img src="images/autocross.jpeg" alt="Autocross FSAE Simulation" width="400" height="180" /></td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td colspan="3"><img src="images/skidpad.jpeg" alt="Skidpad FSAE Simulation" width="400" height="180" /></td>
+        </tr>
+ 
+
+        
+        <tr>
+        <td><u>Autocross - Time</u>:&nbsp;</td>
+        <td id="outputAutocrossTime" align="right">&nbsp;</td>
+        <td align="right">seconds</td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td><u>Skidpad - Time</u>:&nbsp;</td>
+        <td id="outputSkidpadTime" align="right">&nbsp;</td>
+        <td align="right">seconds</td>
+        </tr>
+
+
+        <tr>
+        <td><u>Autocross - Points</u>:&nbsp;</td>
+        <td id="outputAutocrossPoints" align="right">&nbsp;</td>
+        <td align="right">&nbsp;</td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td><u>Skidpad - Points</u>:&nbsp;</td>
+        <td id="outputSkidpadPoints" align="right">&nbsp;</td>
+        <td align="right">&nbsp;</td>
+        </tr>
+
+        <tr>
+        <td><u>Autocross - WOT Percentage</u>:&nbsp;</td>
+        <td id="outputAutocrossWOTPercentage" align="right">&nbsp;</td>
+        <td align="right">%</td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td><u>Skidpad - Velocity</u>:&nbsp;</td>
+        <td id="outputSkidpadVelocity" align="right">&nbsp;</td>
+        <td align="right">MPH</td>
+        </tr>
+
+        <tr>
+        <td><u>Autocross - Total Shifts</u>:&nbsp;</td>
+        <td id="outputAutocrossTotalShifts" align="right">&nbsp;</td>
+        <td align="right">&nbsp;</td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td><u>Skidpad - Lateral Acceleration</u>:&nbsp;</td>
+        <td id="outputSkidpadAcceleration" align="right">&nbsp;</td>
+        <td align="right">g's</td>
+        </tr>
+
+        <tr>
+        <td><u>Autocross - Traction Limited Time</u>:&nbsp;</td>
+        <td id="outputAutocrossTractionLimitedTime" align="right">&nbsp;</td>
+        <td align="right">seconds</td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td></td>
+        <td></td>
+        </tr>
+        
+        <tr>
+        <td><u>Autocross - Average Acceleration</u>:&nbsp;</td>
+        <td id="outputAutocrossLongitudinalAcceleration" align="right">&nbsp;</td>
+        <td align="right">ft/s^2</td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td></td>
+        <td></td>
+        </tr>
+
+        <tr>
+        <td><u>Autocross - Average Velocity</u>:&nbsp;</td>
+        <td id="outputAutocrossVelocity" align="right">&nbsp;</td>
+        <td align="right">MPH</td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td></td>
+        <td></td>
+        </tr>
+        
+
+
+
+ 
+
+        <tr>
+        <td><h4>Acceleration</h4></td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td><h4>Endurance</h4></td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        </tr>
+
+
+
+
+
+        <tr>
+        <td colspan="3"><img src="images/acceleration.jpeg" alt="Acceleration FSAE Simulation" width="400" height="180" /></td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td colspan="3"><img src="images/endurance.jpeg" alt="Endurance FSAE Simulation" width="400" height="180" /></td>
+        </tr>
+ 
+
+        
+        <tr>
+        <td><u>Acceleration - Time</u>:&nbsp;</td>
+        <td id="outputAccelerationTime" align="right">&nbsp;</td>
+        <td align="right">seconds</td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td><u>Endurance - Time</u>:&nbsp;</td>
+        <td id="outputTotalEnduranceTime" align="right">&nbsp;</td>
+        <td align="right">seconds</td>
+        </tr>
+
+        <tr>
+        <td><u>Acceleration - Points</u>:&nbsp;</td>
+        <td id="outputAccelerationTotalPoints" align="right">&nbsp;</td>
+        <td align="right"></td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td><u>Endurance - Points</u>:&nbsp;</td>
+        <td id="outputTotalEndurancePoints" align="right">&nbsp;</td>
+        <td align="right"></td>
+        </tr>
+
+        <tr>
+        <td><u>Acceleration - WOT Percentage</u>:&nbsp;</td>
+        <td id="outputAccelerationWideOpenThrottlePercentage" align="right">&nbsp;</td>
+        <td align="right">%</td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td><u>Endurance - WOT Percentage</u>:&nbsp;</td>
+        <td id="outputTotalWOTPercentage" align="right">&nbsp;</td>
+        <td align="right">%</td>
+        </tr>
+
+        <tr>
+        <td><u>Acceleration - Total Shifts</u>:&nbsp;</td>
+        <td id="outputAccelerationShifts" align="right">&nbsp;</td>
+        <td></td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td><u>Endurance - Total Shifts</u>:&nbsp;</td>
+        <td id="outputTotalEnduranceShifts" align="right">&nbsp;</td>
+        <td align="right"></td>
+        </tr>
+
+        <tr>
+        <td><u>Acceleration - Traction Limited Time</u>:&nbsp;</td>
+        <td id="outputAccelerationTractionLimitedTime" align="right">&nbsp;</td>
+        <td align="right">seconds</td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td><u>Endurance - Traction Limited Time</u>:&nbsp;</td>
+        <td id="outputTotalEnduranceTractionLimitedTime" align="right">&nbsp;</td>
+        <td align="right">seconds</td>
+        </tr>
+
+        <tr>
+        <td><u>Acceleration - Average Acceleration</u>:&nbsp;</td>
+        <td id="outputMeanAccelerationLongAccel" align="right">&nbsp;</td>
+        <td align="right">seconds</td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td><u>Endurance - Average Acceleration</u>:&nbsp;</td>
+        <td id="outputTotalEnduranceAcceleration" align="right">&nbsp;</td>
+        <td align="right">seconds</td>
+        </tr>
+
+        <tr>
+        <td><u>Acceleration - Trap Speed</u>:&nbsp;</td>
+        <td id="outputAccelerationTrapSpeed" align="right">&nbsp;</td>
+        <td align="right">MPH</td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td><u>Endurance - Fuel Used</u>:&nbsp;</td>
+        <td id="outputTotalEnduranceFuelUsed" align="right">&nbsp;</td>
+        <td align="right">gallons</td>
+        </tr>
+
+
+        </table>
+        <br />
+        <br />
+
+        </div>
+        </div>
+
+	<div class="body4">
+		<div class="main">
+			<article id="content2">
+				<div class="wrapper">
+					<div class="col3">
+
+						<h4>The Future</h4>
+
+						<ul class="list1">
+
+							<li><a href="feedback.html" itemprop="author" rel="author">Development</a></li>
+
+							
+
+						</ul>
+
+					</div>
+					<div class="col3 pad_left2">
+
+						<h4>Address</h4>
+
+						<ul class="address">
+							<li><span>Country:</span>USA&nbsp;</li>
+
+							<li><span>Location:</span>California</li>
+
+							<li><span>Phone:</span>N.A.</li>
+
+							<li><span>Email:</span><a href="mailto:oshalygin@gmail.com">Contact Me</a></li>
+						</ul>
+						</ul>
+
+					</div>
+					<div class="col3 pad_left2">
+
+						<h4>Follow Me</h4>
+
+						<ul id="icons">
+
+							<li><a href="http://www.facebook.com/profile.php?id=531644798"><img src="images/icon1.jpg" alt="Facebook Link Thumbnail" width="18" height="18" />Facebook</a></li>
+
+							<li><a href="http://www.twitter.com/oshalygin/"><img src="images/icon2.jpg" alt="Twitter Link Thumbnail" width="18" height="18" />Twitter</a></li>
+	                        
+	                        <li>
+                            <!-- Place this tag where you want the +1 button to render -->
+                            <g:plusone annotation="inline"></g:plusone>
+
+                            <!-- Place this render call where appropriate -->
+                            <script type="text/javascript">
+                                (function () {
+                                    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                                    po.src = 'https://apis.google.com/js/plusone.js';
+                                    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+                                })();
+                            </script>
+                            
+                            
+                            </li>
+						</ul>
+
+					</div>
+					<section class="col2 right">
+						<h4>Search the Site</h4>
+						<form id="newsletter" method="post">
+							<div>
+								<div class="wrapper">
+									<input class="input" type="text" value="Search FSAE Simulation"  onblur="if(this.value=='') this.value='Search FSAE Simulation'" onfocus="if(this.value =='Search FSAE Simulation' ) this.value=''" >
+								</div>
+								<a href="#" class="button" onclick="document.getElementById('newsletter').submit()">Search</a>
+							</div>
+						</form>
+					</section>
+				</div>
+			</article>
+<!-- content end -->
+		</div>
+	</div>
+		<div class="main">
+
+
+		</div>
+
+</body>
+</html>
